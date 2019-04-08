@@ -2,7 +2,7 @@
 
 Bu API Türkiye'de yer alan il, ilçe ve mahalle bilgilerini içerir. İl ve ilçe bazında geolocation (enlem-boylam, poligon ve boundingbox) bilgileri de yer almaktadır. Mongodb yedek dosyalarını [buradan](https://drive.google.com/file/d/1e6v4S_-BK8Zs43HYBH5ftidBDrHlOZY7/view?usp=sharing) indirebilirsiniz.
 
-**Ayrıca isterseniz bu servisi http://geoapi.sanalonyedi.net/v1 adresi üzerinden ücretsiz olarak kullanabilirsiniz.**
+**Ayrıca isterseniz bu servisi https://il-ilce-rest-api.herokuapp.com/v1 adresi üzerinden ücretsiz olarak kullanabilirsiniz.**
 
 ## İçindekiler
 * [Servis Kullanımı](#service)
@@ -33,9 +33,27 @@ Kısıtlamalar: Alınan genel sonuçlarda maksimum 100 data servis edilir. Bu sa
 Sıralama City > Towns > Districts > Neighborhoods şeklindedir.  
 Sıralama İl > İlçe > Semt > Mahalle şeklindedir.
 
-Servis adresi : http://geoapi.sanalonyedi.net/v1
+Servis adresi : https://il-ilce-rest-api.herokuapp.com/v1
 
-**Örnek : http://geoapi.sanalonyedi.net/v1/cities**  
+**Örnek : https://il-ilce-rest-api.herokuapp.com/v1/cities**  
+
+<a name="search"></a>
+## Koordinat Arama (/search/coordinates)
+Arama özelliğini kullanarak, servise gönderdiğiniz enlem ve boylam bilgisi karşılığında bu koordinatın hangi ilçe ve ilde olduğunun bilgisini 
+alabilirsiniz.
+
+### /search/coordinates?lat=40.340134&lon=27.971170
+```
+[
+    {
+        "_id":"ce941560c5a7ba9ff5cd24f5f9d75065",
+        "name":"Bandırma",
+        "city" : "Balıkesir"
+    },
+    ...
+]
+```
+
 
 <a name="cities"></a>
 ## İller (/cities)
@@ -438,3 +456,29 @@ ID'si verilmiş mahalle bilgisini döner.
 | lon | string | Boylam |
 | polygons | array | Bölge sınırları |
 | bounding_box | array | Bölge sınır köşeleri |
+
+
+Lisans
+-------
+
+    MIT License
+
+    Copyright (c) 2018 Melih Korkmaz
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
